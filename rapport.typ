@@ -1,5 +1,5 @@
-#let title = "SSE - Automatisation offensive par LLMs"
-#let subtitle = "Génération d'exploits et orchestration d'attaques"
+#let title = "Automatisation offensive par LLMs"
+#let subtitle = "SSE"
 #let author = "Dylan Oliveira Ramos"
 #let date = datetime.today().display("[day]-[month]-[year]")
 #let logo = "./img/00-logo.png"
@@ -57,18 +57,35 @@
 
 L'ascension fulgurante des LLMs ces dernières années est en train de redéfinir le paysage de la sécurité informatique. Ces modèles capables de comprendre et de générer du texte de manière cohérente, ont ouvert de nouvelles perspectives pour l'automatisation offensive. Des frameworks comme RAPTOR permettent désormais de générer des exploits et d'orchestrer des attaques de manière plus rapide et efficace que jamais auparavant.
 
-= Architecture d'un agent offensif
+= Fondements techniques
 
-= Découverte de vulnérabilités
+== LLM standard vs Agent LLM
 
-= Génération d'exploits
+Un LLM (Large Language Model) est un type de programme d'intelligence artificielle (IA) qui une fois entraîné, est capable de reconnaître et de générer du texte @llm. Il faut bien faire la distinction entre le LLM standard et l'Agent LLM, qui contrairement au standard, est capable d'interagir avec son environnement, de prendre des décisions et d'exécuter des actions en fonction des résultats obtenus. Ainsi, les Agents LLMs sont particulièrement adaptés pour des tâches complexes comme la découverte de vulnérabilités et l'exploitation.
 
-= Orchestration d'attaques
+== Boucle de rétroaction ReAct
 
-= Limitations
+La découverte de vulnérabilités et l'exploitation de celles-ci sont des tâches complexes qui nécessitent une compréhension approfondie du contexte et une capacité à s'adapter aux résultats obtenus. C'est là que la boucle de rétroaction ReAct (Reason + Act) entre en jeu. L'Agent ne se contente pas de prédire du texte, il suit un cycle @react :
+
+*1. Thought :* le LLM analyse l'état du système (ex: "Le port 80 est ouvert, je vois un en-tête Apache 2.4.41"). \
+*2. Action :* il choisit un outil dans sa boîte à outils (ex: `searchsploit apache 2.4.41`). \
+*3. Observation :* il lit le résultat de la commande et ajuste sa stratégie. \
+
+#figure(
+  rect(image("./img/react.png", width: 70%), stroke: 0.1pt),
+  caption: [Boucle de rétroaction Reason + Act]
+)
+
+= Analyse de RAPTOR
+
+= Expérimentations et résultats
+
+= Limites et implications
 
 = Conclusion
 
 Mais cette révolution technologique n'est pas un solution miracle. Bien que puissants, les LLMs ont leurs limites et ne peuvent pas remplacer entièrement l'expertise humaine, hallucinations, biais et manque de contexte sont autant de défis à surmonter pour tirer pleinement parti de ces outils.
 
 = Bibliographie
+
+#bibliography("references.yml")
