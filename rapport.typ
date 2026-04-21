@@ -97,28 +97,16 @@ La découverte de vulnérabilités et l'exploitation de celles-ci sont des tâch
 
 = Analyse de RAPTOR
 
-RAPTOR (Recursive Autonomous Penetration Testing and Observation Robot) est un framework de test de sécurité autonome qui combine l'analyse statique, la validation du flux de données et le fuzzing binaire avec une analyse des vulnérabilités alimentée par des LLMs @raptor. Son objectif est d'identifier, valider et exploiter de manière autonome les failles de sécurité avec une intervention humaine minimale.
+RAPTOR (Recursive Autonomous Penetration Testing and Observation Robot) est un framework de recherche en sécurité informatique offensive/défensive autonome construit sur Claude Code @raptor. Il coordonne les outils de sécurité traditionnels (comme Semgrep, CodeQL, AFL++, GDB/rr), puis utilise des LLMs pour trier les résultats, valider l'exploitabilité, générer des PoC et proposer des correctifs, le tout accompagné de rapports structurés.
 
-== Concept
+== Claude Code
 
-Les outils de sécurité traditionnels génèrent des milliers de résultats, mais ne fournissent ni contexte ni évaluation de l'exploitabilité. RAPTOR résout ce problème en : 
-+ Identifiant les vulnérabilités.
-+ Validant l'exploitabilité.
-+ Comprenant les chemins d'attaque.
-+ Automatisant l'exploitation.
-+ Fournissant un raisonnement détaillé.
+sub-agents --> système de mémoire spécialisé?
+skills ? rules?
 
-La puissance de RAPTOR réside dans sa capacité à résonner grâce à des LLMs pour déterminer si une vulnérabilité est vraiment exploitable en analysant :
-- Si la source est contrôlée par l'attaquant.
-- Si les mécanismes de validation peuvent être contournés.
-- Si le chemin d'exécution est accessible.
-- Si la complexité de l'attaque est réalisable.
+== Architecture
 
-== Modes d'opération
-
-- *Analyse du code source :* analyse statique à l'aide de Semgrep et CodeQL avec validation approfondie du flux de données. Ce mode permet d'identifier des bugs de logique, vulnérabilités d'injection (SQL, XSS, etc.), mauvaises utilisations cryptographiques, etc.
-- *Fuzzing binaire :* fuzzing guidé en utilisant AFL++ avec des analyses de crash GDB. Ce mode permet d'identifier des vulnérabilités de mémoire (buffer overflow, use-after-free, integer overflow, etc.).
-- *Analyse de crash :* analyse autonome des causes profondes à l'aide du traçage des fonctions et de la couverture de code. Ce mode permet de comprendre d'où viennent les bugs et d'identifier les chemins d'exploitation.
+RAPTOR s'appuie sur Claude Code comme moteur d'exécution et y superpose un système complet de connaissances dans le domaine de la sécurité informatique.
 
 = Expérimentations et résultats
 
