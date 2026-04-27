@@ -97,16 +97,17 @@ La découverte de vulnérabilités et l'exploitation de celles-ci sont des tâch
 
 = Analyse de RAPTOR
 
-RAPTOR (Recursive Autonomous Penetration Testing and Observation Robot) est un framework de recherche en sécurité informatique offensive/défensive autonome construit sur Claude Code @raptor. Il coordonne les outils de sécurité traditionnels (comme Semgrep, CodeQL, AFL++, GDB/rr), puis utilise des LLMs pour trier les résultats, valider l'exploitabilité, générer des PoC et proposer des correctifs, le tout accompagné de rapports structurés.
-
-== Claude Code
-
-sub-agents --> système de mémoire spécialisé?
-skills ? rules?
+RAPTOR (Recursive Autonomous Penetration Testing and Observation Robot) est un framework de recherche en sécurité informatique offensive/défensive autonome construit sur Claude Code @raptor. Il coordonne les outils de sécurité traditionnels comme Semgrep, CodeQL, AFL++, GDB/rr, puis utilise des LLMs pour trier les résultats, valider l'exploitabilité, générer des PoC et proposer des correctifs, le tout accompagné de rapports structurés.
 
 == Architecture
 
-RAPTOR s'appuie sur Claude Code comme moteur d'exécution et y superpose un système complet de connaissances dans le domaine de la sécurité informatique.
+RAPTOR est composé de deux couches : 
+- *La couche d'orchestration* : qui décide des actions à entreprendre, interprète les résultats, demande des clarifications et lance des sous-agents lorsque cela est nécessaire.
+- *La couche d'exécution* : qui implémente et exécute les outils à l'aide de scripts Python (Analyse statique, fuzzing, exploitation, etc.).
+
+== Fonctionnalités
+
+== Limitations
 
 = Expérimentations et résultats
 
