@@ -107,17 +107,47 @@ RAPTOR est composé de deux couches, la couche de décision Claude Code et la co
 
 - *La couche d'exécution* se charge des tâches les plus lourdes comme l'exécution de Semgrep et CodeQL, la gestion des sous-processus, l'analyse des fichiers SARIF (standard pour les résultats d'une analyse statique de code), etc. Cette couche interagit avec le LLM via une API, elle ne prend pas de décisions, elle exécute.
 
+Cette séparation permet d'utiliser RAPTOR sans Claude Code, en utilisant simplement la couche d'exécution (code Python) pour lancer les outils de sécurité traditionnels, obtenir des résultats structurés, etc.
+
+À noter que la couche de décision n'est pas limitée aux modèles de la famille Claude, elle fonctionne avec n'importe quel LLM que ce soit par le biais d'une API ou d'une instance locale. D'autre part, il est possible d'utiliser plusieurs LLMs en parallèle, chacun s'occupant d'une tâche spécifique.
+
+#figure(
+  rect(image("./img/roles.png", width: 60%), stroke: 0.1pt),
+  caption: [Rôles pouvant être assignés aux LLMs par RAPTOR.]
+)
+
 == Fonctionnalités
 
-== Limitations
+RAPTOR propose des commandes individuelles comme `/scan` pour lancer une analyse statique de code, `/exploit` pour générer un exploit à partir d'une vulnérabilité trouvée, etc. Mais il propose également des commandes puissantes comme `/agentic`, qui permet de lancer un workflow complet automatisé (scan, validation, exploitation et patch). La #underline[@features] ci-dessous présente les différentes fonctionnalités de RAPTOR, à noter qu'elles ne sont pas toutes stables, certaines sont encore en développement ou expérimentales comme `/web` par exemple.
+
+#figure(
+  rect(image("./img/features.png", width: 80%), stroke: 0.1pt),
+  caption: [Fonctionnalités de RAPTOR.]
+) <features>
+
+#text(fill: red)[TODO : PIPELINE? STAGES?]
+
+== Risques et bonnes pratiques
+
+RAPTOR est un projet de recherche récent (premier commit en novembre 2025), il n'est pas encore prêt pour une utilisation en production, les auteurs eux-mêmes le disent : #emph["It is not polished software. It was built in free time, held together with enthusiasm and duct tape, and it works well enough that we can't stop using it. If you want to make it better, open a PR."]
+
+Ainsi, il est important d'être informé des risques et des bonnes pratiques liés à son utilisation :
+- *Exécution de code non fiable :* les outils d'analyse statique analysent du code potentiellement malveillant et exécutent parfois des outils de compilation, il faut donc veiller à utiliser RAPTOR dans un environnement isolé pour éviter tout risque de compromission.
+- *Prompt injection :* les LLMs peuvent être trompés par des entrées malveillantes (commentaires dans le code, résultats d'un outil d'analyse, etc.), il est donc important de traiter tous les exploits générés par RAPTOR comme sensibles.
+- *Fuite d'informations :* l'utilisation de RAPTOR sur du code propriétaire ou sensible peut entraîner une fuite d'informations si le code est envoyé à un LLM externe, il faut donc veiller à utiliser des LLMs locaux si le code est confidentiel.
 
 = Expérimentations et résultats
+
+RAPTOR n'est pas le seul projet à explorer l'automatisation offensive par LLMs, d'autres projets comme 
 
 project glasswing
 
 = Limites et implications
 
+hallucinations
+coût
 context window : voir @architecture
+étique (n'importe qui peut utiliser ces outils, plus besoin d'être un pro)
 
 = Conclusion
 
