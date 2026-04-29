@@ -26,3 +26,10 @@ raptor:
   url:
     value: https://github.com/gadievron/raptor/tree/08cdb83230eb894deb96368edb2e5314b6952ffa/docs
     date: 2026-04-20
+token-is-all-you-need:
+  type: Web
+  title: "Token Is All You Need: Finding 0days with LLMs and Agentic AI"
+  author: Ken Huang
+  url:
+    value: https://kenhuangus.substack.com/p/token-is-all-you-need-finding-0days
+    date: 2026-04-29

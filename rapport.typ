@@ -101,9 +101,11 @@ RAPTOR (Recursive Autonomous Penetration Testing and Observation Robot) est un f
 
 == Architecture
 
-RAPTOR est composé de deux couches : 
-- *La couche d'orchestration* : qui décide des actions à entreprendre, interprète les résultats, demande des clarifications et lance des sous-agents lorsque cela est nécessaire.
-- *La couche d'exécution* : qui implémente et exécute les outils à l'aide de scripts Python (Analyse statique, fuzzing, exploitation, etc.).
+RAPTOR est composé de deux couches, la couche de décision Claude Code et la couche d'exécution.
+
+- *La couche de décision Claude Code* "réfléchit" et prend des décisions. Quelles trouvailles privilégier? Comment interpréter les résultats? Quel est le scénario d'attaque? Est-ce que l'exploitation est plausible? Cette couche est implémentée sous forme de Claude Code Skills, de commandes et d'agents qui se chargent progressivement.
+
+- *La couche d'exécution* se charge des tâches les plus lourdes comme l'exécution de Semgrep et CodeQL, la gestion des sous-processus, l'analyse des fichiers SARIF (standard pour les résultats d'une analyse statique de code), etc. Cette couche interagit avec le LLM via une API, elle ne prend pas de décisions, elle exécute.
 
 == Fonctionnalités
 
@@ -118,6 +120,8 @@ project glasswing
 context window : voir @architecture
 
 = Conclusion
+
+Token is all you need @token-is-all-you-need
 
 Mais cette révolution technologique n'est pas un solution miracle. Bien que puissants, les LLMs ont leurs limites et ne peuvent pas remplacer entièrement l'expertise humaine, hallucinations, biais et manque de contexte sont autant de défis à surmonter pour tirer pleinement parti de ces outils.
 
