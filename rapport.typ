@@ -79,7 +79,7 @@ Un agent LLM est composé de quatre éléments clés @architecture:
 
 #figure(
   rect(image("./img/architecture.png", width: 70%), stroke: 0.1pt),
-  caption: [Architecture d'un Agent LLM.]
+  caption: [Architecture d'un Agent LLM.],
 )
 
 == Boucle de rétroaction ReAct
@@ -92,7 +92,7 @@ La découverte de vulnérabilités et l'exploitation de celles-ci sont des tâch
 
 #figure(
   rect(image("./img/react.png", width: 70%), stroke: 0.1pt),
-  caption: [Boucle de rétroaction Reason + Act.]
+  caption: [Boucle de rétroaction Reason + Act.],
 )
 
 = Analyse de RAPTOR
@@ -113,7 +113,7 @@ Cette séparation permet d'utiliser RAPTOR sans Claude Code, en utilisant simple
 
 #figure(
   rect(image("./img/roles.png", width: 60%), stroke: 0.1pt),
-  caption: [Rôles pouvant être assignés aux LLMs par RAPTOR.]
+  caption: [Rôles pouvant être assignés aux LLMs par RAPTOR.],
 )
 
 == Fonctionnalités
@@ -122,7 +122,7 @@ RAPTOR propose des commandes individuelles comme `/scan` pour lancer une analyse
 
 #figure(
   rect(image("./img/features.png", width: 80%), stroke: 0.1pt),
-  caption: [Fonctionnalités de RAPTOR.]
+  caption: [Fonctionnalités de RAPTOR.],
 ) <features>
 
 #text(fill: red)[TODO : PIPELINE? STAGES?]
@@ -136,9 +136,9 @@ Ainsi, il est important d'être informé des risques et des bonnes pratiques li�
 - *Prompt injection :* les LLMs peuvent être trompés par des entrées malveillantes (commentaires dans le code, résultats d'un outil d'analyse, etc.), il est donc important de traiter tous les exploits générés par RAPTOR comme sensibles.
 - *Fuite d'informations :* l'utilisation de RAPTOR sur du code propriétaire ou sensible peut entraîner une fuite d'informations si le code est envoyé à un LLM externe, il faut donc veiller à utiliser des LLMs locaux si le code est confidentiel.
 
-= Expérimentations et résultats
+= Industrialisation de la recherche de vulnérabilités
 
-RAPTOR n'est pas le seul projet à explorer l'automatisation offensive par LLMs, d'autres projets comme 
+Il existe d'autres projets que RAPTOR, comme #link("https://github.com/GreyDGL/PentestGPT")[#underline[PentestGPT]], #link("https://github.com/vxcontrol/pentagi")[#underline[PentAGI]] ou encore #link("https://github.com/Vasco0x4/AIDA")[#underline[AIDA]], mais ce ne sont pas ces outils qui sont en train de révolutionner cette industrie, ce sont les LLMs. Les LLMs sont les véritables moteurs de cette révolution, notamment avec l'apparition récente de nouveaux modèles spécialisés dans la recherche de vulnérabilités comme Claude Mythos de Anthropic.
 
 project glasswing
 
