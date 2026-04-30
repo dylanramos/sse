@@ -138,13 +138,20 @@ Ainsi, il est important d'être informé des risques et des bonnes pratiques li�
 
 = Industrialisation de la recherche de vulnérabilités
 
-Il existe d'autres projets que RAPTOR, comme #link("https://github.com/GreyDGL/PentestGPT")[#underline[PentestGPT]], #link("https://github.com/vxcontrol/pentagi")[#underline[PentAGI]] ou encore #link("https://github.com/Vasco0x4/AIDA")[#underline[AIDA]], mais ce ne sont pas ces outils qui sont en train de révolutionner cette industrie, ce sont les LLMs. Les LLMs sont les véritables moteurs de cette révolution, notamment avec l'apparition récente de nouveaux modèles spécialisés dans la recherche de vulnérabilités comme Claude Mythos de Anthropic.
+Il existe d'autres projets que RAPTOR, comme #link("https://github.com/GreyDGL/PentestGPT")[#underline[PentestGPT]], #link("https://github.com/vxcontrol/pentagi")[#underline[PentAGI]] ou encore #link("https://github.com/Vasco0x4/AIDA")[#underline[AIDA]], mais ce ne sont pas ces outils qui sont en train de révolutionner cette industrie, ce sont les LLMs, et les géants de l'IA l'ont bien compris. 
+
+En novembre 2024, une équipe de Google a annoncé la découverte d'une vulnérabilité de type Stack Buffer Underflow dans le logiciel SQLite par son agent IA appelé Big Sleep @big-sleep. Cet événement marque la première fois qu'une vulnérabilité a été découverte par une IA dans un projet réel.
+
+
 
 project glasswing
 
 = Limites et implications
 
-hallucinations
+False Positives/Negatives: AI can misinterpret code or mislabel benign files, leading to a flood of useless reports.
+Model Vulnerabilities: Attackers can target the AI models themselves through data poisoning or theft.
+High Complexity: In some cases, the learning curve to manage these new tools is steep, and they can be unpredictable, requiring human validation of all findings. 
+CISA
 coût
 context window : voir @architecture
 étique (n'importe qui peut utiliser ces outils, plus besoin d'être un pro)

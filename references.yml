@@ -13,9 +13,10 @@ react:
     value: https://huggingface.co/learn/agents-course/unit1/agent-steps-and-structure
     date: 2026-04-13
 architecture:
-  type: Web
+  type: Article
   title: Fundamentals of Building Autonomous LLM Agents
   author: ["Victor de Lamo Castrillo", "Habtom Kahsay Gidey", "Alexander Lenz", "Alois Knoll"]
+  date: 2025-10-10
   url:
     value: https://arxiv.org/html/2510.09244v1
     date: 2026-04-20
@@ -25,11 +26,20 @@ raptor:
   author: ["Gadi Evron", "Daniel Cuthbert", "Thomas Dullien (Halvar Flake)", "Michael Bargury", "John Cartwright"]
   url:
     value: https://github.com/gadievron/raptor/tree/08cdb83230eb894deb96368edb2e5314b6952ffa/docs
-    date: 2026-04-20
+    date: 2026-04-30
 token-is-all-you-need:
-  type: Web
+  type: Article
   title: "Token Is All You Need: Finding 0days with LLMs and Agentic AI"
   author: Ken Huang
+  date: 2026-04-13
   url:
     value: https://kenhuangus.substack.com/p/token-is-all-you-need-finding-0days
     date: 2026-04-29
+big-sleep:
+  type: Article
+  title: "From Naptime to Big Sleep: Using Large Language Models To Catch Vulnerabilities In Real-World Code"
+  author: Big Sleep team
+  date: 2024-11-01
+  url:
+    value: https://projectzero.google/2024/10/from-naptime-to-big-sleep.html
+    date: 2026-04-30
