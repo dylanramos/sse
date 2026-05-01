@@ -56,11 +56,15 @@
 #set outline.entry(fill: line(length: 100%, stroke: 0.1pt))
 #outline(title: "Table des matières")
 
+#outline(target: figure, title: "Table des illustrations")
+
 #pagebreak()
 
 = Introduction
 
-L'ascension fulgurante des LLMs ces dernières années est en train de redéfinir le paysage de la sécurité informatique. Ces modèles capables de comprendre et de générer du texte de manière cohérente, ont ouvert de nouvelles perspectives pour l'automatisation offensive, notamment grâce à l'IA agentique. Des frameworks comme #link("https://github.com/gadievron/raptor")[#underline("RAPTOR")] permettent désormais de générer des exploits et d'orchestrer des attaques de manière plus rapide et efficace que jamais auparavant.
+La sécurité informatique offensive a longtemps reposé sur l'expertise de spécialistes humains : comprendre une base de code, identifier des patterns vulnérables, construire un exploit valide sont des tâches qui demandent des années de pratique. Les Large Language Models (LLMs) sont en train de changer cette réalité. Capables de raisonner sur du code, de planifier des actions et d'interagir avec des outils, ces modèles ouvrent la voie à une nouvelle génération d'agents autonomes dédiés à la recherche et à l'exploitation de vulnérabilités. Des frameworks comme #link("https://github.com/gadievron/raptor")[#underline("RAPTOR")] illustrent concrètement cette évolution, en orchestrant des pipelines d'attaque complets, de l'analyse statique à la génération d'exploit, sans intervention humaine.
+
+#pagebreak()
 
 = Fondements techniques
 
@@ -95,6 +99,8 @@ La découverte de vulnérabilités et l'exploitation de celles-ci sont des tâch
   caption: [Boucle de rétroaction Reason + Act.],
 )
 
+#pagebreak()
+
 = Analyse de RAPTOR
 
 RAPTOR (Recursive Autonomous Penetration Testing and Observation Robot) est un framework de recherche en sécurité informatique offensive/défensive autonome construit sur Claude Code @raptor. Il coordonne les outils de sécurité traditionnels comme Semgrep, CodeQL, AFL++, GDB/rr, puis utilise des LLMs pour trier les résultats, valider l'exploitabilité, générer des PoC et proposer des correctifs, le tout accompagné de rapports structurés.
@@ -127,44 +133,51 @@ RAPTOR propose des commandes individuelles comme `/scan` pour lancer une analyse
 
 #text(fill: red)[TODO : PIPELINE? STAGES?]
 
-== Risques et bonnes pratiques
+== Limites et implications
 
 RAPTOR est un projet de recherche récent (premier commit en novembre 2025), il n'est pas encore prêt pour une utilisation en production, les auteurs eux-mêmes le disent : #emph["It is not polished software. It was built in free time, held together with enthusiasm and duct tape, and it works well enough that we can't stop using it. If you want to make it better, open a PR."]
 
 Ainsi, il est important d'être informé des risques et des bonnes pratiques liés à son utilisation :
 - *Exécution de code non fiable :* les outils d'analyse statique analysent du code potentiellement malveillant et exécutent parfois des outils de compilation, il faut donc veiller à utiliser RAPTOR dans un environnement isolé pour éviter tout risque de compromission.
 - *Prompt injection :* les LLMs peuvent être trompés par des entrées malveillantes (commentaires dans le code, résultats d'un outil d'analyse, etc.), il est donc important de traiter tous les exploits générés par RAPTOR comme sensibles.
+- *Hallucinations :* les LLMs peuvent mal interpréter le code ou classer à tort des fichiers inoffensifs, ainsi, une intervention humaine reste indispensable pour valider les résultats obtenus par RAPTOR.
 - *Fuite d'informations :* l'utilisation de RAPTOR sur du code propriétaire ou sensible peut entraîner une fuite d'informations si le code est envoyé à un LLM externe, il faut donc veiller à utiliser des LLMs locaux si le code est confidentiel.
+
+#pagebreak()
 
 = Industrialisation de la recherche de vulnérabilités
 
 Il existe d'autres projets que RAPTOR, comme #link("https://github.com/GreyDGL/PentestGPT")[#underline[PentestGPT]], #link("https://github.com/vxcontrol/pentagi")[#underline[PentAGI]] ou encore #link("https://github.com/Vasco0x4/AIDA")[#underline[AIDA]], mais ce ne sont pas ces outils qui sont en train de révolutionner cette industrie, ce sont les LLMs, et les géants de l'IA l'ont bien compris. 
 
-En novembre 2024, une équipe de Google a annoncé la découverte d'une vulnérabilité de type Stack Buffer Underflow dans le logiciel SQLite par son agent IA appelé Big Sleep @big-sleep. Cet événement marque la première fois qu'une vulnérabilité a été découverte par une IA dans un projet réel.
+== Google
 
+En novembre 2024, une équipe de Google a annoncé la découverte d'une vulnérabilité de type Stack Buffer Underflow dans le logiciel SQLite par son agent IA appelé Big Sleep @big-sleep. Cet événement marque la première fois qu'une vulnérabilité a été découverte par une IA dans un projet réel. En juillet 2025, grâce à des informations fournies par Google Threat Intelligence, l'agent Big Sleep a découvert une autre vulnérabilité dans SQLite uniquement connue par les acteurs malveillants @big-sleep-2. Cela a permis à Google d'empêcher une exploitation de la vulnérabilité avant que celle-ci ne soit exploitée dans la nature, cela marque la première fois qu'un agent IA a permis de prévenir une attaque dans la nature.
 
+== OpenAI
 
-project glasswing
+En mars 2026, OpenAI a déployé Codex Security, un agent de sécurité qui a analysé plus de 1,2 million de commits sur des dépôts externes, identifiant 792 vulnérabilités critiques et 10'561 de haute sévérité @codex-security. Parmi les CVEs découvertes figurent notamment plusieurs failles dans des projets Open Source populaires comme OpenSSH, GnuTLS, PHP et Chromium.
 
-= Limites et implications
+== Anthropic
 
-False Positives/Negatives: AI can misinterpret code or mislabel benign files, leading to a flood of useless reports.
-Model Vulnerabilities: Attackers can target the AI models themselves through data poisoning or theft.
-High Complexity: In some cases, the learning curve to manage these new tools is steep, and they can be unpredictable, requiring human validation of all findings. 
-CISA
-coût
-context window : voir @architecture
-étique (n'importe qui peut utiliser ces outils, plus besoin d'être un pro)
+En avril 2026, Anthropic a annoncé la sortie de son nouveau modèle Claude Mythos, un modèle qui affiche d'excellentes performances dans tous les domaines, mais #emph["qui se distingue particulièrement dans les tâches liées à la sécurité informatique"] @claude-mythos. Ce modèle a permis à l'aide d'un seul prompt et sans intervention humaine d'identifier des milliers de vulnérabilités dont deux particulièrement intéressantes :
+- Une vulnérabilité datant de 27 ans dans OpenBSD permettant à un attaquant de faire planter tout système répondant par TCP.
+- Une vulnérabilité datant de 16 ans dans FFmpeg permettant un Out-of-Bounds Write et ainsi de faire planter le programme.
+
+#pagebreak()
 
 = Conclusion
 
-Token is all you need @token-is-all-you-need
+L'utilisation de LLMs pour l'automatisation offensive devient inévitable. Les avantages de ces modèles par rapport à un expert humain sont nombreux : disponibilité permanente, capacité à traiter de grands volumes de code en parallèle, absence de fatigue cognitive et surtout une vitesse d'exécution incomparable. Là où un auditeur humain peut mettre plusieurs semaines à analyser une base de code complexe, un agent LLM peut produire un premier rapport en quelques heures, couvrant des milliers de fichiers avec un niveau de détail difficile à atteindre manuellement.
 
-Mais cette révolution technologique n'est pas un solution miracle. Bien que puissants, les LLMs ont leurs limites et ne peuvent pas remplacer entièrement l'expertise humaine, hallucinations, biais et manque de contexte sont autant de défis à surmonter pour tirer pleinement parti de ces outils.
+Cependant, ces modèles ne sont pas sans limites. La fenêtre de contexte constitue aujourd'hui l'un des freins majeurs : un agent ne peut raisonner que sur une portion limitée de code à la fois, ce qui complique l'analyse de projets de grande envergure où les vulnérabilités résultent souvent d'interactions entre plusieurs composants. Par ailleurs, la complexité d'apprentissage de ces systèmes est élevée : les hallucinations, les faux positifs et les mauvaises interprétations restent fréquents, rendant une supervision humaine indispensable pour valider les résultats.
 
-= Table des illustrations
+L'industrialisation de la recherche de vulnérabilités par les LLMs soulève également des questions éthiques. D'un côté, l'accessibilité croissante de ces outils représente un risque sérieux pour la sécurité globale : n'importe quel individu, sans compétences techniques particulières, peut désormais déléguer à un agent la découverte et l'exploitation de failles, la barrière d'entrée à la cybercriminalité n'a jamais été aussi basse.
 
-#outline(target: figure, title: none)
+De l'autre côté, la recherche offensive se concentre entre les mains de ceux qui ont les moyens de la financer. L'utilisation intensive de LLMs de pointe représente un coût non négligeable, accessible aux grandes entreprises et aux États mais hors de portée pour la plupart des chercheurs indépendants. Des projets comme Glasswing @glasswing, orientés vers les grandes entreprises technologiques, illustrent cette tendance : la découverte de vulnérabilités à grande échelle devient un avantage concurrentiel réservé aux acteurs disposant d'infrastructures et de budgets conséquents, creusant davantage l'écart entre les capacités offensives des grands groupes et celles des acteurs plus modestes.
+
+Au fond, ce que ces évolutions révèlent est simple : dans un futur proche, trouver une vulnérabilité ne nécessitera plus d'être un expert en sécurité. Il suffira d'avoir de l'argent. _Token is all you need._
+
+#pagebreak()
 
 = Bibliographie
 

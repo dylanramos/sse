@@ -43,3 +43,34 @@ big-sleep:
   url:
     value: https://projectzero.google/2024/10/from-naptime-to-big-sleep.html
     date: 2026-04-30
+big-sleep-2:
+  type: Article
+  title: "A summer of security: empowering cyber defenders with AI"
+  author: Kent Walker
+  date: 2025-07-15
+  url:
+    value: https://blog.google/innovation-and-ai/technology/safety-security/cybersecurity-updates-summer-2025/
+    date: 2026-05-01
+codex-security:
+  type: Article
+  title: "OpenAI Codex Security Scanned 1.2 Million Commits and Found 10,561 High-Severity Issues"
+  author: Ravie Lakshmanan
+  date: 2026-03-07
+  url:
+    value: https://thehackernews.com/2026/03/openai-codex-security-scanned-12.html
+    date: 2026-05-01
+claude-mythos:
+  type: Article
+  title: "Assessing Claude Mythos Preview’s cybersecurity capabilities"
+  author: Anthropic Team
+  date: 2026-04-07
+  url:
+    value: https://red.anthropic.com/2026/mythos-preview/
+    date: 2026-05-01
+glasswing:
+  type: Web
+  title: "Project Glasswing"
+  author: Anthropic
+  url:
+    value: https://www.anthropic.com/glasswing
+    date: 2026-05-01
