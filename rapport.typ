@@ -168,7 +168,7 @@ Il existe d'autres projets que RAPTOR, comme #link("https://github.com/GreyDGL/P
 
 == Google
 
-En novembre 2024, une équipe de Google a annoncé la découverte d'une vulnérabilité de type Stack Buffer Underflow dans le logiciel SQLite par son agent IA appelé Big Sleep @big-sleep. Cet événement marque la première fois qu'une vulnérabilité a été découverte par une IA dans un projet réel. En juillet 2025, grâce à des informations fournies par Google Threat Intelligence, l'agent Big Sleep a découvert une autre vulnérabilité dans SQLite uniquement connue par les acteurs malveillants @big-sleep-2. Cela a permis à Google d'empêcher une exploitation de la vulnérabilité avant que celle-ci ne soit exploitée dans la nature, cela marque la première fois qu'un agent IA a permis de prévenir une attaque dans la nature.
+En novembre 2024, une équipe de Google a annoncé la découverte d'une vulnérabilité de type Stack Buffer Underflow dans le logiciel SQLite (CVE-2025-6965) par son agent IA appelé Big Sleep @big-sleep. Cet événement marque la première fois qu'une vulnérabilité a été découverte par une IA dans un projet réel. C'est grâce à des informations fournies par le Google Threat Intelligence que Big Sleep a permis d'éviter une exploitation de la vulnérabilité avant que celle-ci ne soit exploitée dans la nature @big-sleep-2.
 
 == OpenAI
 
