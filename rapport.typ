@@ -131,7 +131,24 @@ RAPTOR propose des commandes individuelles comme `/scan` pour lancer une analyse
   caption: [Fonctionnalités de RAPTOR.],
 ) <features>
 
-#text(fill: red)[TODO : PIPELINE? STAGES?]
+== Utilisation
+
+L'utilisation typique de RAPTOR est la suivante :
+
+*1. Création du projet :* les commandes `/project create myapp --target /path/to/code` et `/project use myapp` permettent d'organiser les fichiers de sortie générés et d'avoir un espace de travail stable où chaque exécution enregistre ses résultats et offre la possibilité de relancer les analyses en les comparant au fil du temps. \
+*2. Compréhension de la base de code :* la commande `/understand --map` permet d'obtenir une cartographie de la base de code, notamment les points d'entrée (endpoints API, arguments de CLI, etc.) et les limites de confiance (construction d'une requête SQL à partir d'une entrée utilisateur, parsing d'un fichier, etc.). \
+*3. Lancement du workflow automatisé :* la commande `/agentic` exécute `Semgrep` et `CodeQL` pour trouver des patterns vulnérables, regroupe les mêmes trouvailles provenant des différents outils pour éviter les doublons, soumet chaque trouvaille aux étapes de validation A-D (voir chapitre suivant), puis génère des PoCs et des correctifs pour les trouvailles validées. \
+
+== Étapes de validation
+
+Les trouvailles passent par quatre étapes de validation avant d'être considérées comme exploitables :
+
+*Étape A :* le pattern est-il vraiment vulnérable ou s'agit-il d'un faux positif? \
+*Étape B :* de quoi un attaquant a-t-il besoin pour y accéder et quels sont les obstacles? \
+*Étape C :* le chemin d'exécution existe-t-il réellement? Peut-on y accéder depuis l'extérieur? \
+*Étape D :* s'agit-il d'un code de test ? Nécessite-t-il des conditions préalables irréalistes ? Le modèle est-il trop prudent ?
+
+Ainsi, les résultats ayant passé ces quatre étapes donnent lieu à des PoCs et des correctifs.
 
 == Limites et implications
 
