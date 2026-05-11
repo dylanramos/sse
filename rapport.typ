@@ -90,7 +90,7 @@ Un agent LLM est composé de quatre éléments clés @architecture:
 
 La découverte de vulnérabilités et l'exploitation de celles-ci sont des tâches complexes qui nécessitent une compréhension approfondie du contexte et une capacité à s'adapter aux résultats obtenus. C'est là que la boucle de rétroaction ReAct (Reason + Act) entre en jeu. L'Agent ne se contente pas de prédire du texte, il suit un cycle @react :
 
-*1. Thought :* le LLM analyse l'état du système (ex: "Le port 80 est ouvert, je vois un en-tête Apache 2.4.41"). \
+*1. Think :* le LLM analyse l'état du système (ex: "Le port 80 est ouvert, je vois un en-tête Apache 2.4.41"). \
 *2. Action :* il choisit un outil dans sa boîte à outils (ex: `searchsploit apache 2.4.41`). \
 *3. Observation :* il lit le résultat de la commande et ajuste sa stratégie. \
 
@@ -164,7 +164,7 @@ Ainsi, il est important d'être informé des risques et des bonnes pratiques li�
 
 = Industrialisation de la recherche de vulnérabilités
 
-Il existe d'autres projets que RAPTOR, comme #link("https://github.com/GreyDGL/PentestGPT")[#underline[PentestGPT]], #link("https://github.com/vxcontrol/pentagi")[#underline[PentAGI]] ou encore #link("https://github.com/Vasco0x4/AIDA")[#underline[AIDA]], mais ce ne sont pas ces outils qui sont en train de révolutionner cette industrie, ce sont les LLMs, et les géants de l'IA l'ont bien compris. 
+Il existe d'autres projets que RAPTOR, comme #link("https://github.com/GreyDGL/PentestGPT")[#underline[PentestGPT]], #link("https://github.com/vxcontrol/pentagi")[#underline[PentAGI]] ou encore #link("https://github.com/Vasco0x4/AIDA")[#underline[AIDA]], mais ce ne sont pas ces outils qui sont en train de révolutionner cette industrie, ce sont les LLMs, et les géants de l'IA l'ont bien compris.
 
 == Google
 
