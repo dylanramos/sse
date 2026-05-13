@@ -109,7 +109,7 @@ RAPTOR (Recursive Autonomous Penetration Testing and Observation Robot) est un f
 
 RAPTOR est composé de deux couches, la couche de décision Claude Code et la couche d'exécution.
 
-- *La couche de décision Claude Code* "réfléchit" et prend des décisions. Quelles trouvailles privilégier? Comment interpréter les résultats? Quel est le scénario d'attaque? Est-ce que l'exploitation est plausible? Cette couche est implémentée sous forme de Claude Code Skills, de commandes et d'agents qui se chargent progressivement.
+- *La couche de décision Claude Code* "réfléchit" et prend des décisions. Quelles trouvailles privilégier ? Comment interpréter les résultats ? Quel est le scénario d'attaque ? Est-ce que l'exploitation est plausible ? Cette couche est implémentée sous forme de Claude Code Skills, de commandes et d'agents qui se chargent progressivement.
 
 - *La couche d'exécution* se charge des tâches les plus lourdes comme l'exécution de Semgrep et CodeQL, la gestion des sous-processus, l'analyse des fichiers SARIF (standard pour les résultats d'une analyse statique de code), etc. Cette couche interagit avec le LLM via une API, elle ne prend pas de décisions, elle exécute.
 
@@ -143,9 +143,9 @@ L'utilisation typique de RAPTOR est la suivante :
 
 Les trouvailles passent par quatre étapes de validation avant d'être considérées comme exploitables :
 
-*Étape A :* le pattern est-il vraiment vulnérable ou s'agit-il d'un faux positif? \
-*Étape B :* de quoi un attaquant a-t-il besoin pour y accéder et quels sont les obstacles? \
-*Étape C :* le chemin d'exécution existe-t-il réellement? Peut-on y accéder depuis l'extérieur? \
+*Étape A :* le pattern est-il vraiment vulnérable ou s'agit-il d'un faux positif ? \
+*Étape B :* de quoi un attaquant a-t-il besoin pour y accéder et quels sont les obstacles ? \
+*Étape C :* le chemin d'exécution existe-t-il réellement ? Peut-on y accéder depuis l'extérieur ? \
 *Étape D :* s'agit-il d'un code de test ? Nécessite-t-il des conditions préalables irréalistes ? Le modèle est-il trop prudent ?
 
 Ainsi, les résultats ayant passé ces quatre étapes donnent lieu à des PoC et des correctifs.
