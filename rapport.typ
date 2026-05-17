@@ -68,13 +68,13 @@ La sécurité informatique offensive a longtemps reposé sur l'expertise de spé
 
 = Fondements techniques
 
-== LLM standard vs Agent LLM
+== LLM standard vs agent LLM
 
-Un LLM est un type de programme d'intelligence artificielle qui une fois entraîné, est capable de reconnaître et de générer du texte @llm. Il faut bien faire la distinction entre le LLM standard et l'Agent LLM, qui contrairement au standard, est capable d'interagir avec son environnement, de prendre des décisions et d'exécuter des actions en fonction des résultats obtenus. Ainsi, les Agents LLMs sont particulièrement adaptés pour des tâches complexes comme la découverte de vulnérabilités et l'exploitation.
+Un LLM est un type de programme d'intelligence artificielle qui une fois entraîné, est capable de reconnaître et de générer du texte @llm. Il faut bien faire la distinction entre le LLM standard et l'agent LLM, qui contrairement au standard, est capable d'interagir avec son environnement, de prendre des décisions et d'exécuter des actions en fonction des résultats obtenus. Ainsi, les agents LLMs sont particulièrement adaptés pour des tâches complexes comme la découverte de vulnérabilités et l'exploitation.
 
-== Architecture d'un Agent LLM
+== Architecture d'un agent LLM
 
-Un agent LLM est composé de quatre éléments clés @architecture:
+Un agent LLM est composé de quatre éléments clés @architecture :
 
 *1. Le système de perception :* qui est chargé de collecter et de traiter les données provenant de l'environnement, telles que du texte, des images ou toute autre forme d'information. \
 *2. Le système de raisonnement :* qui reçoit les instructions relatives à la tâche ainsi que les données provenant du système de perception, puis élabore un plan décomposé en étapes distinctes. \
@@ -83,15 +83,15 @@ Un agent LLM est composé de quatre éléments clés @architecture:
 
 #figure(
   rect(image("./img/architecture.png", width: 70%), stroke: 0.1pt),
-  caption: [Architecture d'un Agent LLM.],
+  caption: [Architecture d'un agent LLM.],
 )
 
 == Boucle de rétroaction ReAct
 
-La découverte de vulnérabilités et l'exploitation de celles-ci sont des tâches complexes qui nécessitent une compréhension approfondie du contexte et une capacité à s'adapter aux résultats obtenus. C'est là que la boucle de rétroaction ReAct (Reason + Act) entre en jeu. L'Agent ne se contente pas de prédire du texte, il suit un cycle @react :
+La découverte de vulnérabilités et l'exploitation de celles-ci sont des tâches complexes qui nécessitent une compréhension approfondie du contexte et une capacité à s'adapter aux résultats obtenus. C'est là que la boucle de rétroaction ReAct (Reason + Act) entre en jeu. L'agent ne se contente pas de prédire du texte, il suit un cycle @react :
 
-*1. Think :* le LLM analyse l'état du système (ex: "Le port 80 est ouvert, je vois un en-tête Apache 2.4.41"). \
-*2. Action :* il choisit un outil dans sa boîte à outils (ex: `searchsploit apache 2.4.41`). \
+*1. Think :* le LLM analyse l'état du système (ex : "Le port 80 est ouvert, je vois un en-tête Apache 2.4.41"). \
+*2. Action :* il choisit un outil dans sa boîte à outils (ex : `searchsploit apache 2.4.41`). \
 *3. Observation :* il lit le résultat de la commande et ajuste sa stratégie. \
 
 #figure(
@@ -192,7 +192,7 @@ L'industrialisation de la recherche de vulnérabilités par les LLMs soulève é
 
 De l'autre côté, la recherche offensive se concentre entre les mains de ceux qui ont les moyens de la financer. L'utilisation intensive de LLMs de pointe représente un coût non négligeable, accessible aux grandes entreprises et aux États mais hors de portée pour la plupart des chercheurs indépendants. Des projets comme Glasswing @glasswing, orientés vers les grandes entreprises technologiques, illustrent cette tendance : la découverte de vulnérabilités à grande échelle devient un avantage concurrentiel réservé aux acteurs disposant d'infrastructures et de budgets conséquents, creusant davantage l'écart entre les capacités offensives des grands groupes et celles des acteurs plus modestes.
 
-Au fond, ce que ces évolutions révèlent est simple : dans un futur proche, trouver une vulnérabilité ne nécessitera plus d'être un expert en sécurité. Il suffira d'avoir de l'argent. _Token is all you need._
+Au fond, ce que ces évolutions révèlent est simple : dans un futur proche, trouver une vulnérabilité ne nécessitera plus d'être un expert en sécurité, il suffira d'avoir de l'argent. _Token is all you need._
 
 #pagebreak()
 
