@@ -1,1 +1,1 @@
-# sse
+# SSE - Automatisation offensive par LLMs

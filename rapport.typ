@@ -2,7 +2,7 @@
 #let subtitle = "SSE"
 #let author = "Dylan Oliveira Ramos"
 #let date = datetime.today().display("[day]-[month]-[year]")
-#let logo = "./img/00-logo.png"
+#let logo = "./images/00-logo.png"
 
 #set text(font: "New Computer Modern", lang: "fr")
 #set heading(numbering: "1.")
@@ -82,7 +82,7 @@ Un agent LLM est composé de quatre éléments clés @architecture :
 *4. Le système d'action :* qui exécute les actions planifiées par le système de raisonnement, en utilisant les outils disponibles dans la boîte à outils de l'agent (appels API, mouvements de souris, etc.).
 
 #figure(
-  rect(image("./img/architecture.png", width: 70%), stroke: 0.1pt),
+  rect(image("./images/architecture.png", width: 70%), stroke: 0.1pt),
   caption: [Architecture d'un agent LLM.],
 )
 
@@ -95,7 +95,7 @@ La découverte de vulnérabilités et l'exploitation de celles-ci sont des tâch
 *3. Observation :* il lit le résultat de la commande et ajuste sa stratégie. \
 
 #figure(
-  rect(image("./img/react.png", width: 70%), stroke: 0.1pt),
+  rect(image("./images/react.png", width: 70%), stroke: 0.1pt),
   caption: [Boucle de rétroaction Reason + Act.],
 )
 
@@ -118,7 +118,7 @@ Cette séparation permet d'utiliser RAPTOR sans Claude Code, en utilisant simple
 À noter que la couche de décision n'est pas limitée aux modèles de la famille Claude, elle fonctionne avec n'importe quel LLM que ce soit par le biais d'une API ou d'une instance locale. D'autre part, il est possible d'utiliser plusieurs LLMs en parallèle, chacun s'occupant d'une tâche spécifique.
 
 #figure(
-  rect(image("./img/roles.png", width: 60%), stroke: 0.1pt),
+  rect(image("./images/roles.png", width: 60%), stroke: 0.1pt),
   caption: [Rôles pouvant être assignés aux LLMs par RAPTOR.],
 )
 
@@ -127,7 +127,7 @@ Cette séparation permet d'utiliser RAPTOR sans Claude Code, en utilisant simple
 RAPTOR propose des commandes individuelles comme `/scan` pour lancer une analyse statique de code, `/exploit` pour générer un exploit à partir d'une vulnérabilité trouvée, etc. Mais il propose également des commandes puissantes comme `/agentic`, qui permet de lancer un workflow complet automatisé (scan, validation, exploitation et patch). La #underline[@features] ci-dessous présente les différentes fonctionnalités de RAPTOR, à noter qu'elles ne sont pas toutes stables, certaines sont encore en développement ou expérimentales comme `/web` par exemple.
 
 #figure(
-  rect(image("./img/features.png", width: 80%), stroke: 0.1pt),
+  rect(image("./images/features.png", width: 80%), stroke: 0.1pt),
   caption: [Fonctionnalités de RAPTOR.],
 ) <features>
 
